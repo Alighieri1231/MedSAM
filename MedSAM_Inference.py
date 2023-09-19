@@ -85,8 +85,10 @@ parser.add_argument(
 )
 parser.add_argument(
     "--box",
-    type=int,
-    default=[95, 255, 190, 350],
+    type=list,
+    #default=[95, 255, 190, 350],
+    #default=[36, 24,87, 83],
+    default=[int(36*0.9), int(24*0.9),int(87*1.1), int(83*1.1)],
     help="bounding box of the segmentation target",
 )
 parser.add_argument("--device", type=str, default="cuda:0", help="device")
