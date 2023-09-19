@@ -85,7 +85,7 @@ parser.add_argument(
 )
 parser.add_argument(
     "--box",
-    type=list,
+    type=int,
     default=[95, 255, 190, 350],
     help="bounding box of the segmentation target",
 )
@@ -94,7 +94,7 @@ parser.add_argument(
     "-chk",
     "--checkpoint",
     type=str,
-    default="work_dir/MedSAM/medsam_vit_b.pth",
+    default="C:/Users/emili/OneDrive/Documentos/GitHub/MedSAM/medsam_vit_b.pth",
     help="path to the trained model",
 )
 args = parser.parse_args()
@@ -123,6 +123,7 @@ img_1024_tensor = (
 )
 
 box_np = np.array([args.box])
+print(box_np)
 # transfer box_np t0 1024x1024 scale
 box_1024 = box_np / np.array([W, H, W, H]) * 1024
 with torch.no_grad():
